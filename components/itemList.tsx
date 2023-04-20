@@ -39,9 +39,9 @@ const ItemList: FC = () => {
           {itemList.map((item) => (
             <li
               key={item.id}
-              className="flex justify-between gap-5 items-center my-5"
+              className="flex justify-center gap-5 items-center my-5"
             >
-              <div className="bg-blue-50 rounded-2xl drop-shadow-lg text-blue-950 p-3.5 w-72 h-14 flex items-center">
+              <div className="bg-blue-50 rounded-2xl drop-shadow-lg text-blue-950 p-3.5 w-72 lg:w-96 h-14 flex items-center curser-pointer">
                 <p className="font-bold">{item.value}</p>
               </div>
               <p>
@@ -67,11 +67,13 @@ const ItemList: FC = () => {
 
       <div className="">
         <form onSubmit={handleSubmit}>
-          <label htmlFor="add-item">Item:</label>
           <input
             id="add-item"
             value={item}
+            placeholder="Study English"
+            required
             onChange={(e) => setItem(e.target.value)}
+            className="bg-gray-50 border border-blue-900 text-blue-950 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 mx-auto p-2.5 my-1 mb-3 lg:mb-6"
           />
 
           <button className="mx-auto w-60 flex gap-2 item-center justify-center bg-blue-600 text-white rounded-full py-2 px-3 uppercase text-xs font-bold curser-pointer tracking-wider">
