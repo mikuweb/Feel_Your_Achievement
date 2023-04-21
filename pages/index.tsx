@@ -14,7 +14,7 @@ export default function Home() {
         ></meta>
       </Head>
 
-      <div className="bg-blue-50">
+      <div className="bg-blue-50 lg:overflow-hidden">
         <div className="bg-white px-10 lg:max-w-3xl lg:mx-auto lg:mt-20 lg:px-15">
           <Greeting />
           <div className="bg-blue-950 text-center mx-auto rounded-3xl text-white p-10 w-72 lg:w-96 h-28 flex flex-col justify-center gap-2">
