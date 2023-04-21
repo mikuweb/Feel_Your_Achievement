@@ -32,7 +32,7 @@ const ItemList: FC = () => {
     setItem("");
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = (id: number) => {
     const newItemList = itemList.filter((item) => {
       return id !== item.id;
     });
