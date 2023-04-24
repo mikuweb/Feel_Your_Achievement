@@ -2,28 +2,29 @@ import React, { FC, FormEvent, useState } from "react";
 import InputForm from "./inputForm";
 import Item from "./item";
 
-interface Item {
+export interface ItemType {
   id: number;
   value: string;
   isCompleted: boolean;
+  isEditing: boolean;
 }
 const ItemList: FC = () => {
-  const [itemList, setItemList] = useState<Item[]>([
+  const [itemList, setItemList] = useState<ItemType[]>([
     {
       id: Math.random(),
       value: "Studying Next.js",
       isCompleted: false,
+      isEditing: false,
     },
     {
       id: Math.random(),
       value: "Running",
       isCompleted: false,
+      isEditing: false,
     },
   ]);
 
   const [item, setItem] = useState<string>("");
-
-  const [isCompleted, setIsCompleted] = useState<boolean>(false);
 
   const handleAddItem = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -33,6 +34,7 @@ const ItemList: FC = () => {
         id: Math.random(),
         value: item,
         isCompleted: false,
+        isEditing: false,
       },
     ];
 
@@ -40,8 +42,18 @@ const ItemList: FC = () => {
     setItem("");
   };
 
-  const handleComplete = () => {
-    setIsCompleted((preValue) => !preValue);
+  const handleComplete = (id: number) => {
+    const newItemList = itemList.map((item) =>
+      id === item.id ? { ...item, isCompleted: !item.isCompleted } : item
+    );
+    setItemList(newItemList);
+  };
+
+  const handleEdit = (id: number) => {
+    const newItemList = itemList.map((item) =>
+      item.id === id ? { ...item, isEditing: !item.isEditing } : item
+    );
+    setItemList(newItemList);
   };
 
   const handleDelete = (id: number) => {
@@ -56,13 +68,14 @@ const ItemList: FC = () => {
     <>
       <div className="py-10">
         <ul>
-          {itemList.map((item) => (
+          {itemList.map((listItem) => (
             <Item
-              key={item.id}
-              id={item.id}
-              value={item.value}
+              key={listItem.id}
+              item={listItem}
+              setItem={setItem}
               handleComplete={handleComplete}
               handleDelete={handleDelete}
+              handleEdit={handleEdit}
             />
           ))}
         </ul>

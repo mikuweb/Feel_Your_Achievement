@@ -8,12 +8,12 @@ interface InputFormProps {
 
 const InputForm: FC<InputFormProps> = ({ handleAddItem, item, setItem }) => {
   return (
-    <div className="">
+    <div className="pb-5">
       <form onSubmit={handleAddItem}>
         <input
           id="add-item"
           value={item}
-          placeholder="Study English"
+          placeholder="Type new item"
           required
           onChange={(e) => setItem(e.target.value)}
           className="bg-gray-50 border border-blue-900 text-blue-950 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 mx-auto p-2.5 my-1 mb-3 lg:mb-6"
