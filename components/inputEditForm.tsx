@@ -1,21 +1,28 @@
-import React, { FC, FormEvent, useState } from "react";
+import React, { FC, FormEvent, useState, useEffect } from "react";
 import { ItemType } from "./itemList";
 
 interface InputEditFormProps {
   item: ItemType;
   setItem: (value: string) => void;
-  editItem: () => void;
+  editItem: (value: ItemType) => void;
 }
 
 const InputEditForm: FC<InputEditFormProps> = ({ item, setItem, editItem }) => {
   const [value, setValue] = useState("");
 
+  useEffect(() => {
+    setValue(item.value);
+  }, [item]);
+
   const handleSubmitEdit: (e: React.FormEvent<HTMLFormElement>) => void = (
     e
   ) => {
     e.preventDefault();
-
-    editItem();
+    editItem({
+      ...item,
+      value,
+      isEditing: false,
+    });
   };
 
   return (

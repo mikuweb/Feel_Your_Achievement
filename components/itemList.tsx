@@ -49,9 +49,9 @@ const ItemList: FC = () => {
     setItemList(newItemList);
   };
 
-  const handleEdit = (id: number) => {
+  const handleEdit = (updated: ItemType) => {
     const newItemList = itemList.map((item) =>
-      item.id === id ? { ...item, isEditing: !item.isEditing } : item
+      item.id === updated.id ? updated : item
     );
     setItemList(newItemList);
   };
