@@ -9,7 +9,7 @@ interface ItemProps {
   // handleAddItem: (e: FormEvent<HTMLFormElement>) => void;
   handleComplete: (id: number) => void;
   handleDelete: (id: number) => void;
-  handleEdit: (id: number) => void;
+  handleEdit: (item: ItemType) => void;
 }
 
 const Item: FC<ItemProps> = ({
@@ -19,14 +19,10 @@ const Item: FC<ItemProps> = ({
   handleDelete,
   handleEdit,
 }) => {
-  console.log(item.isCompleted);
-
-  const editItem = () => {};
-
   return (
     <>
       {item.isEditing ? (
-        <InputEditForm item={item} setItem={setItem} editItem={editItem} />
+        <InputEditForm item={item} setItem={setItem} editItem={handleEdit} />
       ) : (
         <li
           key={item.id}
@@ -62,7 +58,10 @@ const Item: FC<ItemProps> = ({
             stroke-width="1.5"
             stroke="currentColor"
             className="w-5 h-5 cursor-pointer hover:scale-105"
-            onClick={() => handleEdit(item.id)}
+            onClick={() => handleEdit({
+              ...item,
+              isEditing: !item.isEditing,
+            })}
           >
             <path
               stroke-linecap="round"
