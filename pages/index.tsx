@@ -1,9 +1,31 @@
 import Greeting from "@/components/greeting";
 import ItemList from "@/components/itemList";
+import TodaysAchievement from "@/components/todaysAchievement";
 import Head from "next/head";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+
+export interface ItemType {
+  id: number;
+  value: string;
+  isCompleted: boolean;
+  isEditing: boolean;
+}
 
 export default function Home() {
+  const [itemList, setItemList] = useState<ItemType[]>([
+    {
+      id: Math.random(),
+      value: "Studying Next.js",
+      isCompleted: false,
+      isEditing: false,
+    },
+    {
+      id: Math.random(),
+      value: "Running",
+      isCompleted: false,
+      isEditing: false,
+    },
+  ]);
   return (
     <Fragment>
       <Head>
@@ -17,10 +39,7 @@ export default function Home() {
       <div className="bg-blue-50 lg:overflow-hidden">
         <div className="bg-white px-10 lg:max-w-3xl lg:mx-auto lg:my-20 lg:px-15">
           <Greeting />
-          <div className="bg-blue-950 text-center mx-auto rounded-3xl text-white p-10 w-72 lg:w-96 h-28 flex flex-col justify-center gap-2">
-            <p className="text-sm lg:text-base">Tuesday, April 18</p>
-            <p className="text-lg font-bold lg:text-2xl">3/5 Tasks achieved</p>
-          </div>
+          <TodaysAchievement itemList={itemList} />
 
           <div className="py-10 mx-auto w-72 lg:w-3/4 border-b-2 border-blue-100 ">
             <ul className="flex gap-6  overflow-x-scroll">
@@ -55,7 +74,7 @@ export default function Home() {
             </ul>
           </div>
 
-          <ItemList />
+          <ItemList itemList={itemList} setItemList={setItemList} />
         </div>
       </div>
     </Fragment>

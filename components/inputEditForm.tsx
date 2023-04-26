@@ -1,5 +1,6 @@
+import { ItemType } from "@/pages";
 import React, { FC, FormEvent, useState, useEffect } from "react";
-import { ItemType } from "./itemList";
+
 
 interface InputEditFormProps {
   item: ItemType;
