@@ -1,9 +1,10 @@
 import Greeting from "@/components/greeting";
 import ItemList from "@/components/itemList";
 import TodaysAchievement from "@/components/todaysAchievement";
-import Calender from "@/components/calender";
+import Calender from "@/components/Calender";
 import Head from "next/head";
 import { Fragment, useState } from "react";
+import Footer from "@/components/Footer";
 
 export interface ItemType {
   id: number;
@@ -37,15 +38,16 @@ export default function Home() {
         ></meta>
       </Head>
 
-      <div className="bg-blue-50 lg:overflow-hidden">
-        <div className="bg-white px-10 lg:max-w-3xl lg:mx-auto lg:my-20 lg:px-15">
+      <div className="bg-blue-50  lg:overflow-hidden">
+        <div className="bg-white px-10 lg:max-w-3xl lg:mx-auto lg:mt-20 lg:px-15">
           <Greeting />
           <TodaysAchievement itemList={itemList} />
-          
-          <Calender/>
-          
+
+          <Calender />
+
           <ItemList itemList={itemList} setItemList={setItemList} />
         </div>
+        <Footer />
       </div>
     </Fragment>
   );
