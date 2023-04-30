@@ -13,6 +13,6 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v3
       - name: Install packages
-        run: npm ci
+        run: npm install
       - name: Prettier
         run: npm run format
