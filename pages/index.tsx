@@ -1,24 +1,22 @@
 import Greeting from '@/components/greeting';
 import ItemList from '@/components/itemList';
-import Head from "next/head";
+import Head from 'next/head';
 import { Fragment } from 'react';
 
 export default function Home() {
   return (
     <Fragment>
       <Head>
-          <title>Feel your achievement</title>
+        <title>Feel your achievement</title>
         <meta
           name='description'
           content='Track and visualize your daily efforts, and feel a sense of achievement.'
         ></meta>
       </Head>
 
-                   <div className='bg-blue-50 lg:overflow-hidden'>
-                      <div className='bg-white px-10 lg:max-w-3xl lg:mx-auto lg:my-20 lg:px-15'>
+      <div className='bg-blue-50 lg:overflow-hidden'>
+        <div className='bg-white px-10 lg:max-w-3xl lg:mx-auto lg:my-20 lg:px-15'>
           <Greeting />
-
-
 
           <div className='bg-blue-950 text-center mx-auto rounded-3xl text-white p-10 w-72 lg:w-96 h-28 flex flex-col justify-center gap-2'>
             <p className='text-sm lg:text-base'>Tuesday, April 18</p>
