@@ -28,6 +28,9 @@ export default function Home() {
       isEditing: false,
     },
   ]);
+
+  const [selectedDay, setSelectedDay] = useState<Date | undefined>();
+
   return (
     <Fragment>
       <Head>
@@ -43,7 +46,7 @@ export default function Home() {
           <Greeting />
           <TodaysAchievement itemList={itemList} />
 
-          <Calender />
+          <Calender selectedDay={selectedDay} setSelectedDay={setSelectedDay}/>
 
           <ItemList itemList={itemList} setItemList={setItemList} />
         </div>

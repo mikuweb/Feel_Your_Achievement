@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import InputEditForm from "./inputEditForm";
-import type { ItemType } from "./itemList";
+
 import { FormEvent } from "react";
+import { ItemType } from "@/pages";
 
 interface ItemProps {
   item: ItemType;
@@ -58,10 +59,12 @@ const Item: FC<ItemProps> = ({
             stroke-width="1.5"
             stroke="currentColor"
             className="w-5 h-5 cursor-pointer hover:scale-105"
-            onClick={() => handleEdit({
-              ...item,
-              isEditing: !item.isEditing,
-            })}
+            onClick={() =>
+              handleEdit({
+                ...item,
+                isEditing: !item.isEditing,
+              })
+            }
           >
             <path
               stroke-linecap="round"
