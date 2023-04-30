@@ -1,6 +1,6 @@
-import React, { FC, FormEvent, useState } from "react";
-import InputForm from "./inputForm";
-import Item from "./item";
+import React, { FC, FormEvent, useState } from 'react';
+import InputForm from './inputForm';
+import Item from './item';
 
 export interface ItemType {
   id: number;
@@ -12,19 +12,19 @@ const ItemList: FC = () => {
   const [itemList, setItemList] = useState<ItemType[]>([
     {
       id: Math.random(),
-      value: "Studying Next.js",
+      value: 'Studying Next.js',
       isCompleted: false,
       isEditing: false,
     },
     {
       id: Math.random(),
-      value: "Running",
+      value: 'Running',
       isCompleted: false,
       isEditing: false,
     },
   ]);
 
-  const [item, setItem] = useState<string>("");
+  const [item, setItem] = useState<string>('');
 
   const handleAddItem = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -39,7 +39,7 @@ const ItemList: FC = () => {
     ];
 
     setItemList(newItemList);
-    setItem("");
+    setItem('');
   };
 
   const handleComplete = (id: number) => {
@@ -66,7 +66,7 @@ const ItemList: FC = () => {
 
   return (
     <>
-      <div className="py-10">
+      <div className='py-10'>
         <ul>
           {itemList.map((listItem) => (
             <Item
