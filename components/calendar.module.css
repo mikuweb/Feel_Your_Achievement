@@ -1,12 +1,16 @@
 .selected {
-  @apply bg-red-500;
+  @apply bg-blue-600 text-white shadow-none;
 }
 .selected:hover:not([disabled]) {
-  @apply !bg-red-700;
+  @apply !bg-blue-700 text-white shadow-none;
 }
 
 .months {
-  @apply flex justify-center;
+  @apply flex justify-center font-semibold ;
+}
+
+.day {
+  @apply h-20 lg:h-24 w-14 lg:w-16 rounded-2xl border border-slate-100 drop-shadow-md shadow-xl text-2xl mx-2;
 }
 
 /* Turns to
