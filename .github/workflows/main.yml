@@ -9,10 +9,17 @@ jobs:
   test:
     name: Check the source code
     runs-on: ubuntu-latest
+
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       - name: Install packages
-        run: npm install
+      - run: npm install
       - name: Prettier
-        run: npm run format
+      - run: npm run format
+
