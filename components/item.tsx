@@ -4,7 +4,6 @@ import React, { FC } from 'react';
 
 import InputEditForm from './inputEditForm';
 import type { ItemType } from './itemList';
-import { FormEvent } from 'react';
 
 interface ItemProps {
   item: ItemType;

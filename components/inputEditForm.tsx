@@ -1,4 +1,4 @@
-import React, { FC, FormEvent, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { ItemType } from './itemList';
 
 interface InputEditFormProps {
@@ -7,7 +7,7 @@ interface InputEditFormProps {
   editItem: (value: ItemType) => void;
 }
 
-const InputEditForm: FC<InputEditFormProps> = ({ item, setItem, editItem }) => {
+const InputEditForm: FC<InputEditFormProps> = ({ item, editItem }) => {
   const [value, setValue] = useState('');
 
   useEffect(() => {
