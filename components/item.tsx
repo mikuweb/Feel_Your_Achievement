@@ -1,14 +1,10 @@
 import React, { FC } from 'react';
-
-// import styles from '../styles/components/Item.module.scss';
-
 import InputEditForm from './inputEditForm';
-import type { ItemType } from './itemList';
+import { ItemType } from '@/pages';
 
 interface ItemProps {
   item: ItemType;
   setItem: (value: string) => void;
-  // handleAddItem: (e: FormEvent<HTMLFormElement>) => void;
   handleComplete: (id: number) => void;
   handleDelete: (id: number) => void;
   handleEdit: (item: ItemType) => void;

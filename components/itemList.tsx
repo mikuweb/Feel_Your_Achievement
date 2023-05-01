@@ -1,29 +1,14 @@
 import React, { FC, FormEvent, useState } from 'react';
 import InputForm from './inputForm';
 import Item from './item';
+import { ItemType } from '@/pages';
 
-export interface ItemType {
-  id: number;
-  value: string;
-  isCompleted: boolean;
-  isEditing: boolean;
+interface ItemListProps {
+  itemList: ItemType[];
+  setItemList: (value: ItemType[]) => void;
 }
-const ItemList: FC = () => {
-  const [itemList, setItemList] = useState<ItemType[]>([
-    {
-      id: Math.random(),
-      value: 'Studying Next.js',
-      isCompleted: false,
-      isEditing: false,
-    },
-    {
-      id: Math.random(),
-      value: 'Running',
-      isCompleted: false,
-      isEditing: false,
-    },
-  ]);
 
+const ItemList: FC<ItemListProps> = ({ itemList, setItemList }) => {
   const [item, setItem] = useState<string>('');
 
   const handleAddItem = (e: FormEvent<HTMLFormElement>): void => {
