@@ -36,8 +36,8 @@ export default function Home() {
       <Head>
         <title>Feel your achievement</title>
         <meta
-          name="description"
-          content="Track and visualize your daily efforts, and feel a sense of achievement."
+          name='description'
+          content='Track and visualize your daily efforts, and feel a sense of achievement.'
         ></meta>
       </Head>
 
@@ -47,6 +47,7 @@ export default function Home() {
           <TodaysAchievement itemList={itemList} />
 
           <Calender selectedDay={selectedDay} setSelectedDay={setSelectedDay}/>
+
 
           <ItemList itemList={itemList} setItemList={setItemList} />
         </div>

@@ -1,5 +1,6 @@
+
 import { ItemType } from "@/pages";
-import React, { FC, FormEvent, useState, useEffect } from "react";
+import React, { FC, useState, useEffect } from 'react';
 
 
 interface InputEditFormProps {
@@ -8,8 +9,8 @@ interface InputEditFormProps {
   editItem: (value: ItemType) => void;
 }
 
-const InputEditForm: FC<InputEditFormProps> = ({ item, setItem, editItem }) => {
-  const [value, setValue] = useState("");
+const InputEditForm: FC<InputEditFormProps> = ({ item, editItem }) => {
+  const [value, setValue] = useState('');
 
   useEffect(() => {
     setValue(item.value);
@@ -27,21 +28,21 @@ const InputEditForm: FC<InputEditFormProps> = ({ item, setItem, editItem }) => {
   };
 
   return (
-    <div className="pb-5">
+    <div className='pb-5'>
       <form
-        className="flex items-center justify-center"
+        className='flex items-center justify-center'
         onSubmit={handleSubmitEdit}
       >
         <input
-          id="add-item"
+          id='add-item'
           value={value}
-          placeholder="Edit item"
+          placeholder='Edit item'
           required
           onChange={(e) => setValue(e.target.value)}
-          className="bg-gray-50 border border-blue-900 text-blue-950 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-96 mx-10 p-2.5"
+          className='bg-gray-50 border border-blue-900 text-blue-950 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-96 mx-10 p-2.5'
         />
 
-        <button className="h-10 w-12 bg-blue-600 text-white rounded-2xl uppercase text-xs font-bold curser-pointer tracking-wider">
+        <button className='h-10 w-12 bg-blue-600 text-white rounded-2xl uppercase text-xs font-bold curser-pointer tracking-wider'>
           <p>Edit</p>
         </button>
       </form>

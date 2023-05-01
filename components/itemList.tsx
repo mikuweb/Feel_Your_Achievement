@@ -1,15 +1,19 @@
+
 import React, { FC, FormEvent, useState } from "react";
 import InputForm from "./inputForm";
 import Item from "./item";
 import { ItemType } from "@/pages";
+
 
 interface ItemListProps {
   itemList: ItemType[];
   setItemList: (value: ItemType[]) => void;
 }
 
+
 const ItemList: FC<ItemListProps> = ({ itemList, setItemList }) => {
   const [item, setItem] = useState<string>("");
+
 
   const handleAddItem = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -24,7 +28,7 @@ const ItemList: FC<ItemListProps> = ({ itemList, setItemList }) => {
     ];
 
     setItemList(newItemList);
-    setItem("");
+    setItem('');
   };
 
   const handleComplete = (id: number) => {
@@ -51,7 +55,7 @@ const ItemList: FC<ItemListProps> = ({ itemList, setItemList }) => {
 
   return (
     <>
-      <div className="py-10">
+      <div className='py-10'>
         <ul>
           {itemList.map((listItem) => (
             <Item

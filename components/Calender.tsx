@@ -9,7 +9,7 @@ import {
 
 import calendarStyles from "react-day-picker/dist/style.module.css";
 import { DayPicker, Row, RowProps, ClassNames } from "react-day-picker";
-import styles from "./calendar.module.css";
+import styles from "../styles/components/calendar.module.css";
 
 interface CalenderProps {
   selectedDay: Date | undefined;
