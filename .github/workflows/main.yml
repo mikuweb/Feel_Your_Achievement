@@ -1,0 +1,32 @@
+# to apply all branches except master branch
+# https://stackoverflow.com/questions/57699839/github-actions-how-to-target-all-branches-except-master
+
+on:
+  push:
+    branches-ignore:
+      - master
+jobs:
+  test:
+    name: Check the source code
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+      - name: Install packages
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Prettier
+        run: npm run format
+      - name: Commit Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply formatting changes
+          branch: ${{ github.head_ref }}
+
