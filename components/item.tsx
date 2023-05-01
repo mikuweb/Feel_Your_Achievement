@@ -21,6 +21,7 @@ const Item: FC<ItemProps> = ({
   handleDelete,
   handleEdit,
 }) => {
+
   return (
     <>
       {item.isEditing ? (
