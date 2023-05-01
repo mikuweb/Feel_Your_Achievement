@@ -1,10 +1,10 @@
-import Greeting from "@/components/greeting";
-import ItemList from "@/components/itemList";
-import TodaysAchievement from "@/components/todaysAchievement";
-import Calender from "@/components/Calender";
-import Head from "next/head";
-import { Fragment, useState } from "react";
-import Footer from "@/components/Footer";
+import Greeting from '@/components/greeting';
+import ItemList from '@/components/itemList';
+import TodaysAchievement from '@/components/todaysAchievement';
+import Calender from '@/components/Calender';
+import Head from 'next/head';
+import { Fragment, useState } from 'react';
+import Footer from '@/components/Footer';
 
 export interface ItemType {
   id: number;
@@ -17,13 +17,13 @@ export default function Home() {
   const [itemList, setItemList] = useState<ItemType[]>([
     {
       id: Math.random(),
-      value: "Studying Next.js",
+      value: 'Studying Next.js',
       isCompleted: false,
       isEditing: false,
     },
     {
       id: Math.random(),
-      value: "Running",
+      value: 'Running',
       isCompleted: false,
       isEditing: false,
     },
@@ -41,13 +41,12 @@ export default function Home() {
         ></meta>
       </Head>
 
-      <div className="bg-blue-50  lg:overflow-hidden">
-        <div className="bg-white px-10 lg:max-w-3xl lg:mx-auto lg:mt-20 lg:px-15">
+      <div className='bg-blue-50  lg:overflow-hidden'>
+        <div className='bg-white px-10 lg:max-w-3xl lg:mx-auto lg:mt-20 lg:px-15'>
           <Greeting />
           <TodaysAchievement itemList={itemList} />
 
-          <Calender selectedDay={selectedDay} setSelectedDay={setSelectedDay}/>
-
+          <Calender selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
 
           <ItemList itemList={itemList} setItemList={setItemList} />
         </div>

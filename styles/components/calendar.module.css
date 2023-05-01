@@ -6,7 +6,7 @@
 }
 
 .months {
-  @apply flex justify-center font-semibold ;
+  @apply flex justify-center font-semibold;
 }
 
 .day {

@@ -1,19 +1,15 @@
-
-import React, { FC, FormEvent, useState } from "react";
-import InputForm from "./inputForm";
-import Item from "./item";
-import { ItemType } from "@/pages";
-
+import React, { FC, FormEvent, useState } from 'react';
+import InputForm from './inputForm';
+import Item from './item';
+import { ItemType } from '@/pages';
 
 interface ItemListProps {
   itemList: ItemType[];
   setItemList: (value: ItemType[]) => void;
 }
 
-
 const ItemList: FC<ItemListProps> = ({ itemList, setItemList }) => {
-  const [item, setItem] = useState<string>("");
-
+  const [item, setItem] = useState<string>('');
 
   const handleAddItem = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
