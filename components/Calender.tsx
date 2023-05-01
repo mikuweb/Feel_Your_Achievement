@@ -1,15 +1,15 @@
-import React, { useState, FC } from "react";
+import React, { useState, FC } from 'react';
 import {
   endOfWeek,
   isWithinInterval,
   startOfWeek,
   format,
   addWeeks,
-} from "date-fns";
+} from 'date-fns';
 
-import calendarStyles from "react-day-picker/dist/style.module.css";
-import { DayPicker, Row, RowProps, ClassNames } from "react-day-picker";
-import styles from "../styles/components/calendar.module.css";
+import calendarStyles from 'react-day-picker/dist/style.module.css';
+import { DayPicker, Row, RowProps, ClassNames } from 'react-day-picker';
+import styles from '../styles/components/calendar.module.css';
 
 interface CalenderProps {
   selectedDay: Date | undefined;
@@ -41,11 +41,11 @@ const Calender: FC<CalenderProps> = ({ selectedDay, setSelectedDay }) => {
     setSelectedDay(date);
   };
 
-  const handleBack = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleBack = () => {
     setSelectedWeekOffset(selectedWeekOffset - 1);
   };
 
-  const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleNext = () => {
     setSelectedWeekOffset(selectedWeekOffset + 1);
   };
 
@@ -56,10 +56,10 @@ const Calender: FC<CalenderProps> = ({ selectedDay, setSelectedDay }) => {
   };
   console.log(selectedWeekOffset);
   return (
-    <div className="flex flex-col items-center">
-      {selectedDay && `Day ${format(selectedDay, "d")},`}
+    <div className='flex flex-col items-center'>
+      {selectedDay && `Day ${format(selectedDay, 'd')},`}
       <DayPicker
-        mode="single"
+        mode='single'
         selected={selectedDay}
         showOutsideDays
         month={addWeeks(new Date(), selectedWeekOffset)} //"month" controls the displayed month / today + selectedWeekOffset
@@ -74,42 +74,42 @@ const Calender: FC<CalenderProps> = ({ selectedDay, setSelectedDay }) => {
         }}
         disableNavigation={true}
       />
-      <div className="flex">
+      <div className='flex'>
         <button
-          className="relative rounded-full h-14 w-14 flex items-center justify-center p-4 hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition "
+          className='relative rounded-full h-14 w-14 flex items-center justify-center p-4 hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition '
           onClick={handleBack}
         >
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6"
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            strokeWidth='1.5'
+            stroke='currentColor'
+            className='w-6 h-6'
           >
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5"
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              d='M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5'
             />
           </svg>
         </button>
         <button
-          className="relative rounded-full h-14 w-14 flex items-center justify-center p-4 hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition "
+          className='relative rounded-full h-14 w-14 flex items-center justify-center p-4 hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition '
           onClick={handleNext}
         >
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6"
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            strokeWidth='1.5'
+            stroke='currentColor'
+            className='w-6 h-6'
           >
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              d='M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5'
             />
           </svg>
         </button>
