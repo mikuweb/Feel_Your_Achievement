@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import { IoIosTimer } from 'react-icons/io'
-import {MdChecklist} from "react-icons/md"
+import { IoIosTimer } from 'react-icons/io';
+import { MdChecklist } from 'react-icons/md';
 
 const Footer = () => {
   const router = useRouter();
@@ -29,7 +29,7 @@ const Footer = () => {
           onClick={handleTime}
           className='relative rounded-full h-14 w-14 lg:h-auto lg:w-auto flex items-center justify-center gap-1 p-4 hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition '
         >
-          <IoIosTimer size={27}/>
+          <IoIosTimer size={27} />
           <p className='hidden lg:block'>Timer</p>
         </div>
       </div>
