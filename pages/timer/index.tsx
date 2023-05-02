@@ -9,7 +9,7 @@ const Timer = () => {
   const [customTimer, setCustomTimer] = useState(); //QUESTION: Is initialvalue number 0 or string ""?
   // const [open, setOpen] = React.useState(true);
 
-  const huddleCountdown = (minutes: number ) => {
+  const huddleCountdown = (minutes: number) => {
     setTimeLeft(minutes * 60);
 
     // Display Endtime
