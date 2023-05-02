@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
+import { BiReset } from 'react-icons/bi';
 
 const Timer = () => {
   const [timeLeft, setTimeLeft] = useState(0);
@@ -93,22 +94,6 @@ const Timer = () => {
           </div>
 
           <div className=' mt-20 flex flex-col items-center justify-center '>
-            <div className='w-full flex justify-end '>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth='1.5'
-                stroke='currentColor'
-                className='w-8 h-8 text-white mb-5 cursor-pointer hover:opacity-25'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
-                />
-              </svg>
-            </div>
             <h1 className='text-white text-8xl mb-5 font-bold'>
               {formatTime(timeLeft)}
             </h1>
@@ -120,7 +105,7 @@ const Timer = () => {
               {isPaused ? (
                 <div
                   onClick={handleResume}
-                  className='bg-slate-100 bg-opacity-40 relative rounded-full  h-20 w-20 flex items-center justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer '
+                  className='bg-slate-300 bg-opacity-30 relative rounded-full  h-20 w-20 flex items-center justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer '
                 >
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -141,7 +126,7 @@ const Timer = () => {
               ) : (
                 <div
                   onClick={handlePause}
-                  className='bg-slate-100 bg-opacity-40 relative rounded-full h-20 w-20 flex items-center justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer '
+                  className='bg-slate-300 bg-opacity-30 relative rounded-full h-20 w-20 flex items-center justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer '
                 >
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -160,6 +145,10 @@ const Timer = () => {
                   </svg>
                 </div>
               )}
+            </div>
+            <div className='bg-slate-300 bg-opacity-30 relative rounded-lg w-fit flex gap-2 items-center justify-center py-1 px-2 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer '>
+              <BiReset size={20} color='white' />
+              <p className='text-white'>Reset</p>
             </div>
           </div>
         </div>
