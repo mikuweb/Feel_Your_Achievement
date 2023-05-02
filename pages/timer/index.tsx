@@ -1,17 +1,18 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import * as Dialog from '@radix-ui/react-dialog';
+// import * as Dialog from '@radix-ui/react-dialog';
 import { BiReset } from 'react-icons/bi';
 
 const Timer = () => {
   const [timeLeft, setTimeLeft] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [endTime, setEndTime] = useState('');
+  const [customTimer, setCustomTimer] = useState(); //QUESTION: Is initialvalue number 0 or string ""?
+  // const [open, setOpen] = React.useState(true);
 
-  const huddleCountdown = (minutes: number) => {
-    console.log(minutes);
+  const huddleCountdown = (minutes: number ) => {
     setTimeLeft(minutes * 60);
 
-    //Display Endtime
+    // Display Endtime
     const now = Date.now();
     const then = now + minutes * 60 * 1000;
     formatEndTime(then);
@@ -62,7 +63,7 @@ const Timer = () => {
         <div className='m-10'>Timer</div>
         <div className='max-w-7xl  flex flex-col items-center mx-auto'>
           <div className='w-2/4 min-w-fit h-7 rounded-md py-6 mx-auto flex items-center justify-around bg-blue-50'>
-            <div className='bg-blue-100 rounded-md py-1 px-2 border-b-2 border-blue-50 hover:border-b-2 hover:rounded-none hover:bg-blue-50 hover:border-b-blue-500 cursor-pointer '>
+            <div className='hover:bg-blue-100 hover:rounded-md py-1 px-2 cursor-pointer'>
               Track Time
             </div>
             <div
@@ -78,7 +79,21 @@ const Timer = () => {
               Break 5
             </div>
 
-            <Dialog.Root>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setIsPaused(false);
+                huddleCountdown(customTimer);
+                setCustomTimer(0);
+              }}
+            >
+              <input
+                placeholder='Type Minutes'
+                value={customTimer}
+                onChange={(e) => setCustomTimer(e.target.value)}
+              />
+            </form>
+            {/* <Dialog.Root open={open} onOpenChange={setOpen}>
               <Dialog.Trigger asChild>
                 <div className='hover:bg-blue-100 hover:rounded-md hover:border-none  py-1 px-2 border-b-2 border-b-blue-500 cursor-pointer'>
                   Custom
@@ -86,9 +101,23 @@ const Timer = () => {
               </Dialog.Trigger>
 
               <Dialog.Portal>
-                <Dialog.Overlay />
-                <Dialog.Content>
-                  <Dialog.Title>Custom Timer</Dialog.Title>
+                <Dialog.Overlay
+                  className='
+                overflow-x-hidden
+                overflow-y-auto
+                fixed
+                inset-0
+                z-50
+                bg-neutral-800
+                bg-opacity-70
+                '
+                />
+                <Dialog.Content
+                  className='
+                h-full lg:h-auto max-w-md p-6 fixed bg-white rounded-md shadow-lg transition
+                '
+                >
+                  <Dialog.Title className=''>Custom Timer</Dialog.Title>
                   <Dialog.Description>
                     Type in minutes you want to timer.
                   </Dialog.Description>
@@ -107,7 +136,7 @@ const Timer = () => {
                   </div>
                 </Dialog.Content>
               </Dialog.Portal>
-            </Dialog.Root>
+            </Dialog.Root> */}
           </div>
 
           <div className=' mt-20 flex flex-col items-center justify-center '>
@@ -161,6 +190,7 @@ const Timer = () => {
                 </div>
               )}
             </div>
+
             <div className='bg-slate-300 bg-opacity-30 relative rounded-lg w-fit flex gap-2 items-center justify-center py-1 px-2 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer '>
               <BiReset size={20} color='white' />
               <p className='text-white'>Reset</p>
