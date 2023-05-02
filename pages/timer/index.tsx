@@ -5,10 +5,16 @@ import { BiReset } from 'react-icons/bi';
 const Timer = () => {
   const [timeLeft, setTimeLeft] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [endTime, setEndTime] = useState('');
 
   const huddleCountdown = (minutes: number) => {
     console.log(minutes);
     setTimeLeft(minutes * 60);
+
+    //Display Endtime
+    const now = Date.now();
+    const then = now + minutes * 60 * 1000;
+    formatEndTime(then);
   };
 
   const handlePause = () => {
@@ -37,6 +43,13 @@ const Timer = () => {
     return `${min.toString().padStart(2, '0')}:${sec
       .toString()
       .padStart(2, '0')}`;
+  };
+
+  const formatEndTime = (timestamp: number) => {
+    const end = new Date(timestamp);
+    const hour = end.getHours();
+    const min = end.getMinutes();
+    setEndTime(`End time⏰ at ${hour > 12 ? hour - 12 : hour}:${min < 10 ? "0" : ""}${min} ${hour > 12 ? "pm" : "am"}`);
   };
 
   return (
@@ -97,11 +110,9 @@ const Timer = () => {
             <h1 className='text-white text-8xl mb-5 font-bold'>
               {formatTime(timeLeft)}
             </h1>
-            <p className='text-white text-2xl font-semibold'>
-              Be back at 15:00
-            </p>
+            <p className='text-white text-2xl font-semibold'>{endTime}</p>
 
-            <div className='my-10'>
+            <div className='mt-10 mb-5'>
               {isPaused ? (
                 <div
                   onClick={handleResume}
