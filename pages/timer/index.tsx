@@ -6,10 +6,12 @@ const Timer = () => {
   const [timeLeft, setTimeLeft] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [endTime, setEndTime] = useState('');
-  const [customTimer, setCustomTimer] = useState(); //QUESTION: Is initialvalue number 0 or string ""?
+  const [customTimer, setCustomTimer] = useState<number | undefined>(); //QUESTION: Is initialvalue number 0 or string ""?
   // const [open, setOpen] = React.useState(true);
 
-  const huddleCountdown = (minutes: number ) => {
+  const huddleCountdown = (minutes: number | undefined) => {
+    if (!minutes) return; //minutes === undefined
+
     setTimeLeft(minutes * 60);
 
     // Display Endtime
@@ -59,22 +61,22 @@ const Timer = () => {
 
   return (
     <Fragment>
-      <div className='overflow-hidden bg-gradient-to-r from-blue-300 to-blue-500 h-screen'>
+      <div className='overflow-hidden bg-gradient-to-r from-indigo-300 to-sky-300 h-screen'>
         <div className='m-10'>Timer</div>
         <div className='max-w-7xl  flex flex-col items-center mx-auto'>
           <div className='w-2/4 min-w-fit h-7 rounded-md py-6 mx-auto flex items-center justify-around bg-blue-50'>
-            <div className='hover:bg-blue-100 hover:rounded-md py-1 px-2 cursor-pointer'>
+            <div className='text-blue-900 hover:bg-blue-300 hover:text-white rounded-md py-1 px-2 cursor-pointer'>
               Track Time
             </div>
             <div
               onClick={() => huddleCountdown(25)}
-              className='hover:bg-blue-100 hover:rounded-md hover:border-none  py-1 px-2 border-b-2 border-b-blue-500 cursor-pointer'
+              className='text-blue-900 hover:bg-blue-300 hover:text-white rounded-md py-1 px-2 cursor-pointer'
             >
               Pomodoro 25
             </div>
             <div
               onClick={() => huddleCountdown(5)}
-              className='hover:bg-blue-100 hover:rounded-md hover:border-none  py-1 px-2 border-b-2 border-b-blue-500 cursor-pointer'
+              className='text-blue-900 hover:bg-blue-300 hover:text-white rounded-md py-1 px-2 cursor-pointer'
             >
               Break 5
             </div>
@@ -84,13 +86,16 @@ const Timer = () => {
                 e.preventDefault();
                 setIsPaused(false);
                 huddleCountdown(customTimer);
-                setCustomTimer(0);
+                setCustomTimer(undefined);
               }}
             >
               <input
                 placeholder='Type Minutes'
-                value={customTimer}
-                onChange={(e) => setCustomTimer(e.target.value)}
+                value={customTimer ?? ''} //?? is almost the same as: customTimer ? customTimer : ""
+                onChange={(e) => setCustomTimer(parseInt(e.target.value))}
+                type='number'
+                min='1'
+                max='60'
               />
             </form>
             {/* <Dialog.Root open={open} onOpenChange={setOpen}>
