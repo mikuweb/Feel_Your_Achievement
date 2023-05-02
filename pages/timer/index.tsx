@@ -49,7 +49,11 @@ const Timer = () => {
     const end = new Date(timestamp);
     const hour = end.getHours();
     const min = end.getMinutes();
-    setEndTime(`End time⏰ at ${hour > 12 ? hour - 12 : hour}:${min < 10 ? "0" : ""}${min} ${hour > 12 ? "pm" : "am"}`);
+    setEndTime(
+      `End time⏰ at ${hour > 12 ? hour - 12 : hour}:${
+        min < 10 ? '0' : ''
+      }${min} ${hour > 12 ? 'pm' : 'am'}`
+    );
   };
 
   return (
