@@ -1,18 +1,20 @@
+import Timer from '@/components/Timer';
 import React, { Fragment, useEffect, useState } from 'react';
 // import * as Dialog from '@radix-ui/react-dialog';
-import { BiReset } from 'react-icons/bi';
+import { BsStopwatch, BsHourglassSplit } from 'react-icons/bs';
 
-const Timer = () => {
-  const [timeLeft, setTimeLeft] = useState(0);
+// TODO CREATE COMPONENTS: STOPWATCH & TIMER
+
+const Clock = () => {
+  const [secondLeft, setSecondLeft] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [endTime, setEndTime] = useState('');
-  const [customTimer, setCustomTimer] = useState<number | undefined>(); //QUESTION: Is initialvalue number 0 or string ""?
-  // const [open, setOpen] = React.useState(true);
+  const [customTimer, setCustomTimer] = useState<number | undefined>();
+  const [mode, setMode] = useState(''); // "stopwatch" | "timer"
 
   const huddleCountdown = (minutes: number | undefined) => {
     if (!minutes) return; //minutes === undefined
-
-    setTimeLeft(minutes * 60);
+    setSecondLeft(minutes * 60);
 
     // Display Endtime
     const now = Date.now();
@@ -26,19 +28,19 @@ const Timer = () => {
   };
 
   const handleResume = () => {
-    setTimeLeft(timeLeft);
+    setSecondLeft(secondLeft);
     setIsPaused(false);
   };
 
   useEffect(() => {
     let timer: string | number | NodeJS.Timeout | undefined;
-    if (timeLeft > 0 && !isPaused) {
+    if (secondLeft > 0 && !isPaused) {
       timer = setInterval(() => {
-        setTimeLeft((preTime) => preTime - 1);
+        setSecondLeft((preTime) => preTime - 1);
       }, 1000);
     }
     return () => clearInterval(timer);
-  }, [timeLeft, isPaused]);
+  }, [secondLeft, isPaused]);
 
   const formatTime = (minutes: number) => {
     const min = Math.floor(minutes / 60);
@@ -61,29 +63,43 @@ const Timer = () => {
 
   return (
     <Fragment>
-      <div className='overflow-hidden bg-gradient-to-r from-indigo-300 to-sky-300 h-screen'>
-        <div className='m-10'>Timer</div>
+      <div className='overflow-hidden bg-gradient-to-br from-indigo-300 to-sky-300 h-screen'>
+        <div className='m-10'>Clock</div>
+        {/* Container */}
         <div className='max-w-7xl  flex flex-col items-center mx-auto'>
-          <div className='w-2/4 min-w-fit h-7 rounded-md py-6 mx-auto flex items-center justify-around bg-blue-50'>
-            <div className='text-blue-900 hover:bg-blue-300 hover:text-white rounded-md py-1 px-2 cursor-pointer'>
-              Track Time
+          {/* Menu bar */}
+          <div className='w-2/4 min-w-fit py-2 rounded-md mx-auto flex items-center justify-around bg-blue-50'>
+            <div className='flex flex-col gap-1 items-center text-blue-900 hover:opacity-30 hover:border-b-2 border-blue-800 cursor-pointer'>
+              <BsStopwatch size={28} />
+              <p className='text-sm'>Stop watch</p>
             </div>
+
             <div
-              onClick={() => huddleCountdown(25)}
-              className='text-blue-900 hover:bg-blue-300 hover:text-white rounded-md py-1 px-2 cursor-pointer'
+              onClick={() => {
+                setMode('timer');
+                huddleCountdown(25);
+              }}
+              className='flex flex-col gap-1 items-center text-blue-900 hover:opacity-30 hover:border-b-2 border-blue-800 cursor-pointer'
             >
-              Pomodoro 25
+              <BsHourglassSplit size={28} />
+              <p className='text-sm'>25 mins</p>
             </div>
+
             <div
-              onClick={() => huddleCountdown(5)}
-              className='text-blue-900 hover:bg-blue-300 hover:text-white rounded-md py-1 px-2 cursor-pointer'
+              onClick={() => {
+                setMode('timer');
+                huddleCountdown(5);
+              }}
+              className='flex flex-col gap-1 items-center text-blue-900 hover:opacity-30 hover:border-b-2 border-blue-800 cursor-pointer'
             >
-              Break 5
+              <BsHourglassSplit size={28} />
+              <p className='text-sm'>5 mins</p>
             </div>
 
             <form
               onSubmit={(e) => {
                 e.preventDefault();
+                setMode('timer');
                 setIsPaused(false);
                 huddleCountdown(customTimer);
                 setCustomTimer(undefined);
@@ -143,10 +159,20 @@ const Timer = () => {
               </Dialog.Portal>
             </Dialog.Root> */}
           </div>
-
+          {mode === 'timer' && (
+            <Timer
+              isPaused={isPaused}
+              secondLeft={secondLeft}
+              endTime={endTime}
+              formatTime={formatTime}
+              handlePause={handlePause}
+              handleResume={handleResume}
+            />
+          )}
+          {/* Display container */}
           <div className=' mt-20 flex flex-col items-center justify-center '>
             <h1 className='text-white text-8xl mb-5 font-bold'>
-              {formatTime(timeLeft)}
+              {formatTime(secondLeft)}
             </h1>
             <p className='text-white text-2xl font-semibold'>{endTime}</p>
 
@@ -196,10 +222,10 @@ const Timer = () => {
               )}
             </div>
 
-            <div className='bg-slate-300 bg-opacity-30 relative rounded-lg w-fit flex gap-2 items-center justify-center py-1 px-2 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer '>
+            {/* <div className='bg-slate-300 bg-opacity-30 relative rounded-lg w-fit flex gap-2 items-center justify-center py-1 px-2 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer '>
               <BiReset size={20} color='white' />
               <p className='text-white'>Reset</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -207,4 +233,4 @@ const Timer = () => {
   );
 };
 
-export default Timer;
+export default Clock;
