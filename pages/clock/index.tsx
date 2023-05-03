@@ -2,8 +2,9 @@ import Timer from '@/components/Timer';
 import React, { Fragment, useEffect, useState } from 'react';
 // import * as Dialog from '@radix-ui/react-dialog';
 import { BsStopwatch, BsHourglassSplit } from 'react-icons/bs';
+import { BiReset } from 'react-icons/bi';
 
-// TODO CREATE COMPONENTS: STOPWATCH & TIMER
+// TODO CREATE COMPONENTS: STOPWATCH
 
 const Clock = () => {
   const [secondLeft, setSecondLeft] = useState(0);
@@ -12,6 +13,17 @@ const Clock = () => {
   const [customTimer, setCustomTimer] = useState<number | undefined>();
   const [mode, setMode] = useState(''); // "stopwatch" | "timer"
 
+  //-------------
+  // STOP WATCH
+  //-------------
+  const handleStopWatch = () => {
+    setMode('stopwatch');
+    setSecondLeft(0);
+  };
+
+  //-------------
+  // TIMER
+  //-------------
   const huddleCountdown = (minutes: number | undefined) => {
     if (!minutes) return; //minutes === undefined
     setSecondLeft(minutes * 60);
@@ -34,13 +46,19 @@ const Clock = () => {
 
   useEffect(() => {
     let timer: string | number | NodeJS.Timeout | undefined;
-    if (secondLeft > 0 && !isPaused) {
+    if (mode === 'stopwatch' && !isPaused) {
+      timer = setInterval(() => {
+        setSecondLeft((preTime) => preTime + 1);
+      }, 1000);
+    } else if (secondLeft > 0 && !isPaused) {
       timer = setInterval(() => {
         setSecondLeft((preTime) => preTime - 1);
       }, 1000);
+    } else {
+      clearInterval(timer);
     }
     return () => clearInterval(timer);
-  }, [secondLeft, isPaused]);
+  }, [secondLeft, isPaused, mode]);
 
   const formatTime = (minutes: number) => {
     const min = Math.floor(minutes / 60);
@@ -69,7 +87,12 @@ const Clock = () => {
         <div className='max-w-7xl  flex flex-col items-center mx-auto'>
           {/* Menu bar */}
           <div className='w-2/4 min-w-fit py-2 rounded-md mx-auto flex items-center justify-around bg-blue-50'>
-            <div className='flex flex-col gap-1 items-center text-blue-900 hover:opacity-30 hover:border-b-2 border-blue-800 cursor-pointer'>
+            <div
+              onClick={() => {
+                handleStopWatch();
+              }}
+              className='flex flex-col gap-1 items-center text-blue-900 hover:opacity-30 hover:border-b-2 border-blue-800 cursor-pointer'
+            >
               <BsStopwatch size={28} />
               <p className='text-sm'>Stop watch</p>
             </div>
@@ -169,12 +192,11 @@ const Clock = () => {
               handleResume={handleResume}
             />
           )}
-          {/* Display container */}
+          {/* STOP WATCH */}
           <div className=' mt-20 flex flex-col items-center justify-center '>
             <h1 className='text-white text-8xl mb-5 font-bold'>
               {formatTime(secondLeft)}
             </h1>
-            <p className='text-white text-2xl font-semibold'>{endTime}</p>
 
             <div className='mt-10 mb-5'>
               {isPaused ? (
@@ -222,10 +244,13 @@ const Clock = () => {
               )}
             </div>
 
-            {/* <div className='bg-slate-300 bg-opacity-30 relative rounded-lg w-fit flex gap-2 items-center justify-center py-1 px-2 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer '>
+            <div
+              onClick={() => setSecondLeft(0)}
+              className='bg-slate-300 bg-opacity-30 relative rounded-lg w-fit flex gap-2 items-center justify-center py-1 px-2 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer '
+            >
               <BiReset size={20} color='white' />
               <p className='text-white'>Reset</p>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

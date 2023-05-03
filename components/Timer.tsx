@@ -17,6 +17,7 @@ const Timer: React.FC<TimerProps> = ({
   handlePause,
   handleResume,
 }) => {
+  
   return (
     <div className=' mt-20 flex flex-col items-center justify-center '>
         <p>TIMER MODE</p>
