@@ -12,7 +12,7 @@ const Footer = () => {
 
   const handleTime = () => {
     console.log('Time');
-    router.push('/timer');
+    router.push('/clock');
   };
   return (
     <div className='flex items-center bg-blue-50 h-20 lg:mb-20 '>
@@ -30,7 +30,7 @@ const Footer = () => {
           className='relative rounded-full h-14 w-14 lg:h-auto lg:w-auto flex items-center justify-center gap-1 p-4 hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition '
         >
           <IoIosTimer size={27} />
-          <p className='hidden lg:block'>Timer</p>
+          <p className='hidden lg:block'>Clock</p>
         </div>
       </div>
     </div>
