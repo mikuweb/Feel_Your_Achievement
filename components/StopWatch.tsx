@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { BiReset } from 'react-icons/bi';
 
 interface StopWatchProps {
