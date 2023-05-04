@@ -4,7 +4,8 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { BsStopwatch, BsHourglassSplit } from 'react-icons/bs';
 import StopWatch from '@/components/StopWatch';
 
-// TODO CREATE COMPONENTS: STOPWATCH
+// TODO CREATE COMPONENTS: CLOCK TO DISPLAY CURRENT TIME
+// TODO IMPLEMENT SOMETHING TO DISPLAY THE TIME IN THE TAB
 
 const Clock = () => {
   const [secondLeft, setSecondLeft] = useState(0);
@@ -199,7 +200,7 @@ const Clock = () => {
               setSecondLeft={setSecondLeft}
               formatTime={formatTime}
               handlePause={handlePause}
-              handleResume={handlePause}
+              handleResume={handleResume}
             />
           )}
         </div>
