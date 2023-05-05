@@ -83,7 +83,7 @@ const Clock = () => {
   return (
     <Fragment>
       <div className='overflow-hidden bg-gradient-to-br from-indigo-300 to-sky-300 h-screen'>
-        <div className='m-10'>Clock</div>
+        <div className='text-white text-3xl lg:text-5xl font-bold m-10'>Clock</div>
         {/* Container */}
         <div className='max-w-7xl  flex flex-col items-center mx-auto'>
           {/* Menu bar */}
@@ -127,9 +127,11 @@ const Clock = () => {
                 huddleCountdown(customTimer);
                 setCustomTimer(undefined);
               }}
+              className='w-28'
             >
               <input
-                placeholder='Type Minutes'
+                className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
+                placeholder='Type Mins'
                 value={customTimer ?? ''} //?? is almost the same as: customTimer ? customTimer : ""
                 onChange={(e) => setCustomTimer(parseInt(e.target.value))}
                 type='number'

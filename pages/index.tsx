@@ -1,4 +1,3 @@
-import Greeting from '@/components/greeting';
 import ItemList from '@/components/itemList';
 import TodaysAchievement from '@/components/todaysAchievement';
 import Calender from '@/components/Calender';
@@ -41,16 +40,24 @@ export default function Home() {
         ></meta>
       </Head>
 
-      <div className='bg-blue-50  lg:overflow-hidden'>
-        <div className='bg-white px-10 lg:max-w-3xl lg:mx-auto lg:mt-20 lg:px-15'>
-          <Greeting />
-          <TodaysAchievement itemList={itemList} />
-
-          <Calender selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
-
-          <ItemList itemList={itemList} setItemList={setItemList} />
+      <div className='bg-gradient-to-br from-indigo-300 to-sky-300 lg:overflow-hidden'>
+        {/* Lg-screen */}
+        <div className='hidden lg:block text-white text-5xl font-bold mx-10 my-5'>
+          Daily check list
         </div>
-        <Footer />
+        {/* Sm-screen */}
+        <div className='bg-white lg:max-w-3xl lg:mx-auto lg:mt-8 lg:px-15'>
+          <div className='text-blue-200 lg:hidden text-3xl font-bold m-5'>
+            Daily check list
+          </div>
+          <div className='w-72 lg:w-96 mx-auto py-5'>
+            <h1 className='text-xl font-bold text-blue-950 lg:mt-4'>Hello, Usename!</h1>
+          </div>
+          <TodaysAchievement itemList={itemList} />
+          <Calender selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
+          <ItemList itemList={itemList} setItemList={setItemList} />
+          <Footer />
+        </div>
       </div>
     </Fragment>
   );

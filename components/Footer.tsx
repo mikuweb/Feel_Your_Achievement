@@ -15,7 +15,7 @@ const Footer = () => {
     router.push('/clock');
   };
   return (
-    <div className='flex items-center bg-blue-50 h-20 lg:mb-20 '>
+    <div className='w-full flex items-center bg-blue-50 h-20 lg:mb-20 '>
       <div className='flex items-center justify-around w-96 mx-auto'>
         <div
           onClick={handleList}
