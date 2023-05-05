@@ -51,7 +51,9 @@ export default function Home() {
             Daily check list
           </div>
           <div className='w-72 lg:w-96 mx-auto py-5'>
-            <h1 className='text-xl font-bold text-blue-950 lg:mt-4'>Hello, Usename!</h1>
+            <h1 className='text-xl font-bold text-blue-950 lg:mt-4'>
+              Hello, Usename!
+            </h1>
           </div>
           <TodaysAchievement itemList={itemList} />
           <Calender selectedDay={selectedDay} setSelectedDay={setSelectedDay} />

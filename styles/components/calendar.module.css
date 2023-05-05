@@ -16,7 +16,7 @@
 
 /* QUESTION: How to set calender width? */
 .table {
-  @apply w-72
+  @apply w-72;
 }
 
 /* Turns to
