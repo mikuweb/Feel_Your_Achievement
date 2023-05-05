@@ -87,7 +87,7 @@ const Clock = () => {
         {/* Container */}
         <div className='max-w-7xl  flex flex-col items-center mx-auto'>
           {/* Menu bar */}
-          <div className='w-2/4 min-w-fit py-2 rounded-md mx-auto flex items-center justify-around bg-blue-50'>
+          <div className='w-5/6 max-w-2xl lg:w-2/4 h-16 rounded-md mx-auto flex items-center justify-around bg-blue-50'>
             <div
               onClick={() => {
                 handleStopWatch();
