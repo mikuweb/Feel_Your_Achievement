@@ -52,6 +52,7 @@ const Calender: FC<CalenderProps> = ({ selectedDay, setSelectedDay }) => {
   const classNames: ClassNames = {
     ...calendarStyles,
     months: styles.months,
+    table: styles.table,
     day: styles.day,
   };
   console.log(selectedWeekOffset);

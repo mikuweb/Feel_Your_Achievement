@@ -5,12 +5,18 @@
   @apply !bg-blue-700 text-white shadow-none;
 }
 
+/* QUESTION: How to set overflow-x-scroll? */
 .months {
-  @apply flex justify-center font-semibold;
+  @apply flex justify-center font-semibold overflow-x-scroll;
 }
 
 .day {
-  @apply h-20 lg:h-24 w-14 lg:w-16 rounded-2xl border border-slate-100 drop-shadow-md shadow-xl text-2xl mx-2;
+  @apply h-20 lg:h-24 w-14 lg:w-16 rounded-2xl border border-slate-100 drop-shadow-md shadow-xl text-2xl mx-1 lg:mx-2;
+}
+
+/* QUESTION: How to set calender width? */
+.table {
+  @apply w-72;
 }
 
 /* Turns to
