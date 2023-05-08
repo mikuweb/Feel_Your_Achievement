@@ -81,8 +81,6 @@ const Clock = () => {
     );
   };
 
-
-
   return (
     <Fragment>
       <div className='overflow-hidden bg-gradient-to-br from-indigo-300 to-sky-300 h-screen'>
