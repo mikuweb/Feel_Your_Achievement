@@ -1,8 +1,9 @@
-import Timer from '@/components/Timer';
 import React, { Fragment, useEffect, useState } from 'react';
 // import * as Dialog from '@radix-ui/react-dialog';
 import { BsStopwatch, BsHourglassSplit } from 'react-icons/bs';
+import Timer from '@/components/Timer';
 import StopWatch from '@/components/StopWatch';
+import Time from '@/components/Time';
 
 // TODO CREATE COMPONENTS: CLOCK TO DISPLAY CURRENT TIME
 // TODO IMPLEMENT SOMETHING TO DISPLAY THE TIME IN THE TAB
@@ -12,7 +13,7 @@ const Clock = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [endTime, setEndTime] = useState('');
   const [customTimer, setCustomTimer] = useState<number | undefined>();
-  const [mode, setMode] = useState(''); // "stopwatch" | "timer"
+  const [mode, setMode] = useState<string>('clock'); // "clock" | "stopwatch" | "timer"
 
   //-------------
   // STOP WATCH
@@ -79,6 +80,8 @@ const Clock = () => {
       }${min} ${hour > 12 ? 'pm' : 'am'}`
     );
   };
+
+
 
   return (
     <Fragment>
@@ -186,6 +189,7 @@ const Clock = () => {
               </Dialog.Portal>
             </Dialog.Root> */}
           </div>
+          {mode === 'clock' && <Time />}
           {mode === 'timer' && (
             <Timer
               isPaused={isPaused}
