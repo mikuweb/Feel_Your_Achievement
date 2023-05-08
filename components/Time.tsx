@@ -26,7 +26,9 @@ const Time = () => {
         <title>Clock</title>
       </Head>
       <div className=' mt-20 flex items-baseline justify-center gap-2 '>
-        <h1 className='text-white text-8xl md:text-9xl mb-5 font-bold'>{currentTime}</h1>
+        <h1 className='text-white text-8xl md:text-9xl mb-5 font-bold'>
+          {currentTime}
+        </h1>
         <span className='text-white text-4xl font-bold'>{meridiem}</span>
       </div>
     </>
