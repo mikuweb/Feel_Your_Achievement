@@ -40,7 +40,7 @@ export default function Home() {
       </Head>
 
       <div className='bg-gradient-to-br from-indigo-300 to-sky-300 md:overflow-hidden'>
-        <div className='bg-white md:max-w-3xl md:mx-auto md:mt-8 md:px-15'>
+        <div className='bg-white md:max-w-3xl md:mx-auto md:mt-8 md:mb-8 md:px-15'>
           <div className='text-2xl md:text-3xl font-bold pt-3 pl-3 md:pt-10 md:pl-10'>
             Daily check list
           </div>

@@ -3,6 +3,7 @@ import React from 'react';
 import { BiReset } from 'react-icons/bi';
 import { ClockProps } from './Timer';
 import PauseResumeBtn from './PauseResumeBtn';
+import Head from 'next/head';
 
 const StopWatch: React.FC<ClockProps> = ({
   isPaused,
@@ -19,6 +20,10 @@ const StopWatch: React.FC<ClockProps> = ({
   };
 
   return (
+    <>
+    <Head>
+        <title>{formatTime && formatTime(secondLeft || 0)} Stop watch</title>
+      </Head>
     <div className=' mt-20 flex flex-col items-center justify-center '>
       <h1 className='text-white text-8xl mb-5 font-bold'>
         {formatTime && formatTime(secondLeft || 0)}
@@ -38,6 +43,8 @@ const StopWatch: React.FC<ClockProps> = ({
         <p className='text-white'>Reset</p>
       </div>
     </div>
+    </>
+    
   );
 };
 

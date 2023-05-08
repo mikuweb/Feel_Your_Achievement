@@ -46,10 +46,10 @@ const TodaysAchievement: FC<TodaysAchievementProps> = ({ itemList }) => {
       : `${numOfCompletedItem} Tasks Achieved!`;
 
   return (
-    <div className='py-3 px-12 w-fit flex flex-col justify-center md:gap-2 md:mb-5 bg-gradient-to-br from-blue-700 to-indigo-900 text-center mx-auto rounded-3xl text-white'>
-      <p className='text-xl font-bold'>Hello, Usename!</p>
+    <div className='py-5 px-12 md:gap-1 w-fit flex flex-col justify-center md:mb-5 bg-gradient-to-br from-blue-700 to-indigo-900 text-center mx-auto rounded-3xl text-white'>
+      <p className='text-xl font-semibold'>Hello, Usename!</p>
       <p className='text-base md:text-lg'>{`${day}, ${month} ${date}`}</p>
-      <p className='text-2xl font-bold md:text-3xl'> {message}</p>
+      <p className='text-2xl md:text-3xl font-bold '> {message}</p>
     </div>
   );
 };
