@@ -19,7 +19,7 @@ const InputForm: FC<InputFormProps> = ({ handleAddItem, item, setItem }) => {
           className='bg-gray-50 border border-blue-900 text-blue-950 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 mx-auto p-2.5 my-1 mb-3 lg:mb-6'
         />
 
-        <button className='mx-auto py-2 px-4  flex gap-2 items-center justify-center bg-blue-600 hover:opacity-60 text-white rounded-full text-xs lg:text-base font-bold curser-pointer tracking-wider'>
+        <button className='mx-auto text-base py-1 px-3 md:py-2 md:px-4 flex gap-1 items-center justify-center bg-blue-600 hover:opacity-60 text-white rounded-full font-bold curser-pointer tracking-wider'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'

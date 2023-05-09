@@ -1,10 +1,11 @@
-import Timer from '@/components/Timer';
 import React, { Fragment, useEffect, useState } from 'react';
 // import * as Dialog from '@radix-ui/react-dialog';
 import { BsStopwatch, BsHourglassSplit } from 'react-icons/bs';
+import Timer from '@/components/Timer';
 import StopWatch from '@/components/StopWatch';
+import Time from '@/components/Time';
 
-// TODO CREATE COMPONENTS: CLOCK TO DISPLAY CURRENT TIME
+// TODO FIX TIME COMPONENTS: UPDATE EVERY MINUTE
 // TODO IMPLEMENT SOMETHING TO DISPLAY THE TIME IN THE TAB
 
 const Clock = () => {
@@ -12,7 +13,7 @@ const Clock = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [endTime, setEndTime] = useState('');
   const [customTimer, setCustomTimer] = useState<number | undefined>();
-  const [mode, setMode] = useState(''); // "stopwatch" | "timer"
+  const [mode, setMode] = useState<string>('clock'); // "clock" | "stopwatch" | "timer"
 
   //-------------
   // STOP WATCH
@@ -141,51 +142,8 @@ const Clock = () => {
                 max='60'
               />
             </form>
-            {/* <Dialog.Root open={open} onOpenChange={setOpen}>
-              <Dialog.Trigger asChild>
-                <div className='hover:bg-blue-100 hover:rounded-md hover:border-none  py-1 px-2 border-b-2 border-b-blue-500 cursor-pointer'>
-                  Custom
-                </div>
-              </Dialog.Trigger>
-
-              <Dialog.Portal>
-                <Dialog.Overlay
-                  className='
-                overflow-x-hidden
-                overflow-y-auto
-                fixed
-                inset-0
-                z-50
-                bg-neutral-800
-                bg-opacity-70
-                '
-                />
-                <Dialog.Content
-                  className='
-                h-full lg:h-auto max-w-md p-6 fixed bg-white rounded-md shadow-lg transition
-                '
-                >
-                  <Dialog.Title className=''>Custom Timer</Dialog.Title>
-                  <Dialog.Description>
-                    Type in minutes you want to timer.
-                  </Dialog.Description>
-
-                  <fieldset className=''>
-                    <label className='' htmlFor='name'>
-                      Minutes
-                    </label>
-                    <input className='' id='name' defaultValue='30' />
-                  </fieldset>
-
-                  <div className='flex mt-6 justify-end'>
-                    <Dialog.Close asChild>
-                      <button className=''>Save changes</button>
-                    </Dialog.Close>
-                  </div>
-                </Dialog.Content>
-              </Dialog.Portal>
-            </Dialog.Root> */}
           </div>
+          {mode === 'clock' && <Time />}
           {mode === 'timer' && (
             <Timer
               isPaused={isPaused}
