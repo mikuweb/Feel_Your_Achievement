@@ -1,10 +1,11 @@
-import ItemList from '@/components/itemList';
-import TodaysAchievement from '@/components/todaysAchievement';
-import Calender from '@/components/Calender';
 import Head from 'next/head';
 import { Fragment, useState } from 'react';
 import LoginBtn from '../components/LoginBtn'
 import { useSession } from 'next-auth/react'
+import ItemList from '@/components/itemList';
+import TodaysAchievement from '@/components/todaysAchievement';
+import Calender from '@/components/Calender';
+import Spinner from '@/components/Spinner'
 
 export interface ItemType {
   id: number;
@@ -30,7 +31,9 @@ export default function Home() {
   ]);
 
   const [selectedDay, setSelectedDay] = useState<Date | undefined>();
-  const { data: session } = useSession()
+  const { data: session, status } = useSession();
+
+  if (status === 'loading') return <Spinner/>
 
   return (
     <Fragment>
@@ -58,7 +61,8 @@ export default function Home() {
               </>
             ) : (
               <div>
-                Log in please
+                Top page before user logs in
+                <LoginBtn/>
               </div>
             )
           }
@@ -68,3 +72,16 @@ export default function Home() {
     </Fragment>
   );
 }
+
+// Object destructing
+// const obj = {
+//   key: 1,
+//   name: "Jenny",
+//   country: "Korea"
+// };
+//
+// let { key, name, country } = obj;
+//
+// key
+// name
+// country
