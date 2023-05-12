@@ -1,32 +1,32 @@
-import { signIn, getCsrfToken, getProviders } from "next-auth/react";
-import { GetServerSideProps } from 'next'
+import { signIn, getCsrfToken, getProviders } from 'next-auth/react';
+import { GetServerSideProps } from 'next';
 
-function signin({providers = {}}) {
+function signin({ providers = {} }) {
   return (
     <div>
       <p>login page!!!!!</p>
       <h1>Kento</h1>
       {providers &&
-      Object.values(providers).map((provider: any) => (
-        <div key={provider.name} style={{ marginBottom: 0 }}>
-          <button onClick={() => signIn(provider.id)} >
-            Sign in with{' '} {provider.name}
-          </button>
-        </div>
-      ))}
+        Object.values(providers).map((provider: any) => (
+          <div key={provider.name} style={{ marginBottom: 0 }}>
+            <button onClick={() => signIn(provider.id)}>
+              Sign in with {provider.name}
+            </button>
+          </div>
+        ))}
     </div>
   );
 }
 
 export default signin;
 
-export const getServerSideProps : GetServerSideProps = async (context) => {
-  const providers = await getProviders()
-  const csrfToken = await getCsrfToken(context)
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const providers = await getProviders();
+  const csrfToken = await getCsrfToken(context);
   return {
     props: {
       providers,
-      csrfToken
+      csrfToken,
     },
-  }
-}
+  };
+};

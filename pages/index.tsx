@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import { Fragment, useState } from 'react';
-import LoginBtn from '../components/LoginBtn'
-import { useSession } from 'next-auth/react'
+import LoginBtn from '../components/LoginBtn';
+import { useSession } from 'next-auth/react';
 import ItemList from '@/components/itemList';
 import TodaysAchievement from '@/components/todaysAchievement';
 import Calender from '@/components/Calender';
-import Spinner from '@/components/Spinner'
+import Spinner from '@/components/Spinner';
 
 export interface ItemType {
   id: number;
@@ -33,7 +33,7 @@ export default function Home() {
   const [selectedDay, setSelectedDay] = useState<Date | undefined>();
   const { data: session, status } = useSession();
 
-  if (status === 'loading') return <Spinner/>
+  if (status === 'loading') return <Spinner />;
 
   return (
     <Fragment>
@@ -50,23 +50,23 @@ export default function Home() {
           <div className='text-2xl md:text-3xl font-bold pt-3 pl-3 md:pt-10 md:pl-10'>
             Daily check list
           </div>
-          <LoginBtn/>
-          {
-            session ? (
-              <>
-                <div className='w-72 md:w-96 mx-auto py-5'></div>
-                <TodaysAchievement itemList={itemList} />
-                <Calender selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
-                <ItemList itemList={itemList} setItemList={setItemList} />
-              </>
-            ) : (
-              <div>
-                Top page before user logs in
-                <LoginBtn/>
-              </div>
-            )
-          }
-
+          <LoginBtn />
+          {session ? (
+            <>
+              <div className='w-72 md:w-96 mx-auto py-5'></div>
+              <TodaysAchievement itemList={itemList} />
+              <Calender
+                selectedDay={selectedDay}
+                setSelectedDay={setSelectedDay}
+              />
+              <ItemList itemList={itemList} setItemList={setItemList} />
+            </>
+          ) : (
+            <div>
+              Top page before user logs in
+              <LoginBtn />
+            </div>
+          )}
         </div>
       </div>
     </Fragment>
