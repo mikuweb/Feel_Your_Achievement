@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { BiMenu, BiX } from 'react-icons/bi';
+import LoginBtn from './LoginBtn';
 
 export default function Header() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -30,7 +31,7 @@ export default function Header() {
       <div
         className={`${menuClassName} duration-500 md:static absolute bg-blue-900 bg-opacity-90 md:min-h-fit min-h-[60vh] left-0 w-full md:w-auto flex items-center px-5`}
       >
-        <ul className='flex flex-col md:flex-row md:items-center justify-end gap-8 md:gap-4'>
+        <ul className='flex flex-col md:flex-row md:items-center justify-end gap-8 md:gap-6'>
           <li>
             <div
               className='text-white rounded-full py-1 px-2 hover:border-2 active:border-2 active:border-cyan-400 uppercase cursor-pointer'
@@ -47,15 +48,26 @@ export default function Header() {
               clock
             </div>
           </li>
+          <li>
+            <div className='text-white rounded-full py-1 px-2 hover:border-2 active:border-2 active:border-cyan-400 uppercase cursor-pointer'>
+              progress
+            </div>
+          </li>
         </ul>
       </div>
       {/* MENU ICON */}
-      <div onClick={toggleMenu} className='md:hidden cursor-pointer'>
-        {openMenu ? (
-          <BiX color='white' size={28} />
-        ) : (
-          <BiMenu color='white' size={28} />
-        )}
+      <div className='flex items-center gap-6'>
+        <LoginBtn
+          label={'Sign in'}
+          style={'bg-blue-50 text-blue-950 py-1 px-2 md:px-4'}
+        />
+        <div onClick={toggleMenu} className='md:hidden cursor-pointer'>
+          {openMenu ? (
+            <BiX color='white' size={28} />
+          ) : (
+            <BiMenu color='white' size={28} />
+          )}
+        </div>
       </div>
     </nav>
   );

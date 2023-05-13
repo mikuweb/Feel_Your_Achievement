@@ -5,11 +5,10 @@ function signin({ providers = {} }) {
   return (
     <div>
       <p>login page!!!!!</p>
-      <h1>Kento</h1>
       {providers &&
         Object.values(providers).map((provider: any) => (
           <div key={provider.name} style={{ marginBottom: 0 }}>
-            <button onClick={() => signIn(provider.id)}>
+            <button className='border-2' onClick={() => signIn(provider.id)}>
               Sign in with {provider.name}
             </button>
           </div>
