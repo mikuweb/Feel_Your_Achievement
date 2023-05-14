@@ -59,7 +59,7 @@ export default function Header() {
       <div className='flex items-center gap-6'>
         <LoginBtn
           label={'Sign in'}
-          style={'bg-blue-50 text-blue-950 py-1 px-2 md:px-4'}
+          style={'text-white border-2 hover:bg-white hover:text-blue-950 py-1 px-2 md:px-4'}
         />
         <div onClick={toggleMenu} className='md:hidden cursor-pointer'>
           {openMenu ? (

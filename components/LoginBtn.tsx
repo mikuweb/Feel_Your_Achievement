@@ -23,8 +23,7 @@ const LoginBtn: React.FC<LoginBtnProps> = ({ label, style }) => {
   }
   return (
     <button
-    className={`${style} font-semibold hover:opacity-50 rounded-lg transition`}
-      
+      className={`${style} font-semibold hover:opacity-50 rounded-lg transition`}
       onClick={() => signIn()}
     >
       {label}

@@ -1,187 +1,184 @@
-/* KEYFRAMES */
-
-@keyframes spin {
+.spinner {
+  width: 5rem;
+  height: 5rem;
+}
+.spinner.spinner1 {
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  border-top-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  -webkit-animation: rotation .8s ease infinite;
+          animation: rotation .8s ease infinite;
+}
+@-webkit-keyframes rotation {
   from {
-    transform: rotate(0);
-  }
-  to{
-    transform: rotate(359deg);
-  }
-}
-
-@keyframes spin3D {
-  from {
-    transform: rotate3d(.5,.5,.5, 360deg);
-  }
-  to{
-    transform: rotate3d(0deg);
-  }
-}
-
-@keyframes configure-clockwise {
-  0% {
-    transform: rotate(0);
-  }
-  25% {
-    transform: rotate(90deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes configure-xclockwise {
-  0% {
-    transform: rotate(45deg);
-  }
-  25% {
-    transform: rotate(-45deg);
-  }
-  50% {
-    transform: rotate(-135deg);
-  }
-  75% {
-    transform: rotate(-225deg);
-  }
-  100% {
-    transform: rotate(-315deg);
-  }
-}
-
-@keyframes pulse {
-  from {
-    opacity: 1;
-    transform: scale(1);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   to {
-    opacity: .25;
-    transform: scale(.75);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
-/* GRID STYLING */
-
-.spinner-box {
-  width: 300px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
-
-/* SOLAR SYSTEM */
-
-.solar-system {
-  width: 250px;
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@-webkit-keyframes flip {
+  0% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+            transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+            transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+            transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+  }
 }
-
-.orbit {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid rgba(255, 200, 0, 0.29);
-  border-radius: 50%;
+@keyframes flip {
+  0% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+            transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+            transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+            transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+  }
 }
-
-.earth-orbit {
-  width: 165px;
-  height: 165px;
-  -webkit-animation: spin 12s linear 0s infinite;
+@-webkit-keyframes progress {
+  0% {
+    left: -130%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    left: 130%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  51% {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    background: rgba(255, 255, 255, 0.5);
+  }
 }
-
-.venus-orbit {
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 7.4s linear 0s infinite;
+@keyframes progress {
+  0% {
+    left: -130%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    left: 130%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  51% {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    background: rgba(255, 255, 255, 0.5);
+  }
 }
-
-.mercury-orbit {
-  width: 90px;
-  height: 90px;
-  -webkit-animation: spin 3s linear 0s infinite;
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
 }
-
-.planet {
-  position: absolute;
-  top: -5px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #3ff9dc;
+@keyframes pulse {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
 }
-
-.sun {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background-color: #ffab91;
+@-webkit-keyframes pulse2 {
+  0%, 100% {
+    -webkit-transform: translate(-50%, -50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
 }
-
-.leo {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
+@keyframes pulse2 {
+  0%, 100% {
+    -webkit-transform: translate(-50%, -50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
 }
-
-.blue-orbit {
-  width: 165px;
-  height: 165px;
-  border: 1px solid #91daffa5;
-  -webkit-animation: spin3D 3s linear .2s infinite;
+@-webkit-keyframes flipWalker {
+  0% {
+    -webkit-transform: translate(0, 0) rotateX(0) rotateY(0);
+            transform: translate(0, 0) rotateX(0) rotateY(0);
+  }
+  25% {
+    -webkit-transform: translate(100%, 0) rotateX(0) rotateY(180deg);
+            transform: translate(100%, 0) rotateX(0) rotateY(180deg);
+  }
+  50% {
+    -webkit-transform: translate(100%, 100%) rotateX(-180deg) rotateY(180deg);
+            transform: translate(100%, 100%) rotateX(-180deg) rotateY(180deg);
+  }
+  75% {
+    -webkit-transform: translate(0, 100%) rotateX(-180deg) rotateY(360deg);
+            transform: translate(0, 100%) rotateX(-180deg) rotateY(360deg);
+  }
+  100% {
+    -webkit-transform: translate(0, 0) rotateX(0) rotateY(360deg);
+            transform: translate(0, 0) rotateX(0) rotateY(360deg);
+  }
 }
-
-.green-orbit {
-  width: 120px;
-  height: 120px;
-  border: 1px solid #91ffbfa5;
-  -webkit-animation: spin3D 2s linear 0s infinite;
-}
-
-.red-orbit {
-  width: 90px;
-  height: 90px;
-  border: 1px solid #ffca91a5;
-  -webkit-animation: spin3D 1s linear 0s infinite;
-}
-
-.white-orbit {
-  width: 60px;
-  height: 60px;
-  border: 2px solid #ffffff;
-  -webkit-animation: spin3D 10s linear 0s infinite;
-}
-
-.w1 {
-  transform: rotate3D(1, 1, 1, 90deg);
-}
-
-.w2 {
-  transform: rotate3D(1, 2, .5, 90deg);
-}
-
-.w3 {
-  transform: rotate3D(.5, 1, 2, 90deg);
-}
-
-.three-quarter-spinner {
-  width: 50px;
-  height: 50px;
-  border: 3px solid #fb5b53;
-  border-top: 3px solid transparent;
-  border-radius: 50%;
-  animation: spin .5s linear 0s infinite;
+@keyframes flipWalker {
+  0% {
+    -webkit-transform: translate(0, 0) rotateX(0) rotateY(0);
+            transform: translate(0, 0) rotateX(0) rotateY(0);
+  }
+  25% {
+    -webkit-transform: translate(100%, 0) rotateX(0) rotateY(180deg);
+            transform: translate(100%, 0) rotateX(0) rotateY(180deg);
+  }
+  50% {
+    -webkit-transform: translate(100%, 100%) rotateX(-180deg) rotateY(180deg);
+            transform: translate(100%, 100%) rotateX(-180deg) rotateY(180deg);
+  }
+  75% {
+    -webkit-transform: translate(0, 100%) rotateX(-180deg) rotateY(360deg);
+            transform: translate(0, 100%) rotateX(-180deg) rotateY(360deg);
+  }
+  100% {
+    -webkit-transform: translate(0, 0) rotateX(0) rotateY(360deg);
+            transform: translate(0, 0) rotateX(0) rotateY(360deg);
+  }
 }

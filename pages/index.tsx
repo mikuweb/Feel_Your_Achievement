@@ -61,9 +61,9 @@ export default function Home() {
             </div>
           </>
         ) : (
-          <div className='h-screen'>
-            <div className=' max-w-md md:max-w-2xl  mx-auto text-center py-24'>
-              <h1 className='text-4xl lg:text-5xl font-bold mb-10'>
+          <div className='h-screen overflow-hidden'>
+            <div className='bg-white h-screen md:h-fit md:mt-10 w-full md:max-w-2xl mx-auto text-center py-24 px-8 rounded-lg shadow-lg'>
+              <h1 className='text-4xl md:text-5xl font-bold mb-10'>
                 Track your habits,
                 <br />
                 transform your life.
