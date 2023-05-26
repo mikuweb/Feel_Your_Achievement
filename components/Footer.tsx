@@ -11,7 +11,6 @@ const Footer = () => {
   };
 
   const handleTime = () => {
-    console.log('Time');
     router.push('/clock');
   };
   return (
