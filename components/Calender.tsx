@@ -1,11 +1,5 @@
 import React, { useState, FC } from 'react';
-import {
-  endOfWeek,
-  isWithinInterval,
-  startOfWeek,
-  format,
-  addWeeks,
-} from 'date-fns';
+import { endOfWeek, isWithinInterval, startOfWeek, addWeeks } from 'date-fns';
 
 import calendarStyles from 'react-day-picker/dist/style.module.css';
 import { DayPicker, Row, RowProps, ClassNames } from 'react-day-picker';
@@ -75,7 +69,7 @@ const Calender: FC<CalenderProps> = ({ selectedDay, setSelectedDay }) => {
         }}
         disableNavigation={true}
       />
-       <div className='flex gap-10'>
+      <div className='flex gap-10'>
         <button
           className='rounded-full h-10 w-10 flex items-center justify-center hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition '
           onClick={handleBack}
