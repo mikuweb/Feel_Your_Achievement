@@ -2,7 +2,7 @@
 # https://stackoverflow.com/questions/57699839/github-actions-how-to-target-all-branches-except-master
 
 on:
-  push:
+  pull_request:
     branches-ignore:
       - master
 jobs:
