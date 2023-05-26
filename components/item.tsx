@@ -29,7 +29,7 @@ const Item: FC<ItemProps> = ({
           <div
             className={`${
               item.isCompleted ? 'bg-gray-100 line-through' : 'bg-blue-50'
-            } rounded-2xl drop-shadow-lg text-blue-950 p-3.5 w-72 lg:w-96 h-14 flex items-center cursor-pointer hover:scale-105`}
+            } rounded-2xl drop-shadow-lg text-blue-950 p-3.5 w-72 lg:w-96 h-14 flex items-center cursor-pointer hover:scale-105 focus:ring-blue-500`}
             onClick={() => handleComplete(item.id)}
           >
             <p className='font-bold'>{item.value}</p>
@@ -40,7 +40,7 @@ const Item: FC<ItemProps> = ({
             viewBox='0 0 24 24'
             stroke-width='1.5'
             stroke='currentColor'
-            className='w-5 h-5 cursor-pointer hover:scale-105'
+            className='w-5 h-5 cursor-pointer hover:scale-105 focus:ring-blue-500'
             onClick={() => handleDelete(item.id)}
           >
             <path
@@ -55,7 +55,7 @@ const Item: FC<ItemProps> = ({
             viewBox='0 0 24 24'
             stroke-width='1.5'
             stroke='currentColor'
-            className='w-5 h-5 cursor-pointer hover:scale-105'
+            className='w-5 h-5 cursor-pointer hover:scale-105 focus:ring-blue-500'
             onClick={() =>
               handleEdit({
                 ...item,

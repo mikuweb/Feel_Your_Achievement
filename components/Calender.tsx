@@ -1,11 +1,5 @@
 import React, { useState, FC } from 'react';
-import {
-  endOfWeek,
-  isWithinInterval,
-  startOfWeek,
-  format,
-  addWeeks,
-} from 'date-fns';
+import { endOfWeek, isWithinInterval, startOfWeek, addWeeks } from 'date-fns';
 
 import calendarStyles from 'react-day-picker/dist/style.module.css';
 import { DayPicker, Row, RowProps, ClassNames } from 'react-day-picker';
@@ -52,12 +46,13 @@ const Calender: FC<CalenderProps> = ({ selectedDay, setSelectedDay }) => {
   const classNames: ClassNames = {
     ...calendarStyles,
     months: styles.months,
+    table: styles.table,
     day: styles.day,
   };
   console.log(selectedWeekOffset);
   return (
     <div className='flex flex-col items-center'>
-      {selectedDay && `Day ${format(selectedDay, 'd')},`}
+      {/* {selectedDay && `Day ${format(selectedDay, 'd')},`} */}
       <DayPicker
         mode='single'
         selected={selectedDay}
@@ -74,9 +69,9 @@ const Calender: FC<CalenderProps> = ({ selectedDay, setSelectedDay }) => {
         }}
         disableNavigation={true}
       />
-      <div className='flex'>
+      <div className='flex gap-10'>
         <button
-          className='relative rounded-full h-14 w-14 flex items-center justify-center p-4 hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition '
+          className='rounded-full h-10 w-10 flex items-center justify-center hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition '
           onClick={handleBack}
         >
           <svg
@@ -95,7 +90,7 @@ const Calender: FC<CalenderProps> = ({ selectedDay, setSelectedDay }) => {
           </svg>
         </button>
         <button
-          className='relative rounded-full h-14 w-14 flex items-center justify-center p-4 hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition '
+          className='rounded-full h-10 w-10 flex items-center justify-center hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition '
           onClick={handleNext}
         >
           <svg

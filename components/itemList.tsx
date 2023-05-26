@@ -51,7 +51,7 @@ const ItemList: FC<ItemListProps> = ({ itemList, setItemList }) => {
 
   return (
     <>
-      <div className='py-10'>
+      <div className='pb-5'>
         <ul>
           {itemList.map((listItem) => (
             <Item
