@@ -13,10 +13,12 @@ export default function Header() {
   const handleClock = () => {
     router.push('/clock');
   };
+  const handleProgress = () => {
+    router.push('/progress');
+  };
 
   const toggleMenu = () => {
     setOpenMenu((preClick) => !preClick);
-    console.log(openMenu);
   };
 
   const menuClassName = openMenu ? 'top-[44px]' : 'top-[-100%]';
@@ -49,7 +51,10 @@ export default function Header() {
             </div>
           </li>
           <li>
-            <div className='text-white rounded-full py-1 px-2 hover:border-2 active:border-2 active:border-cyan-400 uppercase cursor-pointer'>
+            <div
+              className='text-white rounded-full py-1 px-2 hover:border-2 active:border-2 active:border-cyan-400 uppercase cursor-pointer'
+              onClick={handleProgress}
+            >
               progress
             </div>
           </li>
@@ -59,7 +64,9 @@ export default function Header() {
       <div className='flex items-center gap-6'>
         <LoginBtn
           label={'Sign in'}
-          style={'text-white border-2 hover:bg-white hover:text-blue-950 py-1 px-2 md:px-4'}
+          style={
+            'text-white border-2 hover:bg-white hover:text-blue-950 py-1 px-2 md:px-4'
+          }
         />
         <div onClick={toggleMenu} className='md:hidden cursor-pointer'>
           {openMenu ? (
