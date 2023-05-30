@@ -6,6 +6,7 @@ import ItemList from '@/components/itemList';
 import TodaysAchievement from '@/components/todaysAchievement';
 import Calender from '@/components/Calender';
 import Spinner from '@/components/Spinner';
+import SampleHabits from '@/components/SampleHabits';
 
 export interface ItemType {
   id: number;
@@ -18,13 +19,13 @@ export default function Home() {
   const [itemList, setItemList] = useState<ItemType[]>([
     {
       id: Math.random(),
-      value: 'Studying Next.js',
+      value: 'You can add a habit like this',
       isCompleted: false,
       isEditing: false,
     },
     {
       id: Math.random(),
-      value: 'Running',
+      value: 'Ex: Running',
       isCompleted: false,
       isEditing: false,
     },
@@ -58,6 +59,7 @@ export default function Home() {
                 setSelectedDay={setSelectedDay}
               />
               <ItemList itemList={itemList} setItemList={setItemList} />
+           <SampleHabits />
             </div>
           </>
         ) : (

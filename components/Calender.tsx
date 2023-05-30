@@ -61,7 +61,6 @@ const Calender: FC<CalenderProps> = ({ selectedDay, setSelectedDay }) => {
         classNames={classNames}
         modifiersClassNames={{
           selected: styles.selected,
-          //ctrl + space
         }}
         onSelect={onSelectChange}
         components={{
@@ -71,7 +70,7 @@ const Calender: FC<CalenderProps> = ({ selectedDay, setSelectedDay }) => {
       />
       <div className='flex gap-10'>
         <button
-          className='rounded-full h-10 w-10 flex items-center justify-center hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition '
+          className='rounded-full h-8 w-8 flex items-center justify-center hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition '
           onClick={handleBack}
         >
           <svg
@@ -80,7 +79,7 @@ const Calender: FC<CalenderProps> = ({ selectedDay, setSelectedDay }) => {
             viewBox='0 0 24 24'
             strokeWidth='1.5'
             stroke='currentColor'
-            className='w-6 h-6'
+            className='w-5 h-5'
           >
             <path
               strokeLinecap='round'
@@ -90,7 +89,7 @@ const Calender: FC<CalenderProps> = ({ selectedDay, setSelectedDay }) => {
           </svg>
         </button>
         <button
-          className='rounded-full h-10 w-10 flex items-center justify-center hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition '
+          className='rounded-full h-8 w-8 flex items-center justify-center hover:bg-slate-500 hover:bg-opacity-10 cursor-pointer transition '
           onClick={handleNext}
         >
           <svg
@@ -99,7 +98,7 @@ const Calender: FC<CalenderProps> = ({ selectedDay, setSelectedDay }) => {
             viewBox='0 0 24 24'
             strokeWidth='1.5'
             stroke='currentColor'
-            className='w-6 h-6'
+            className='w-5 h-5'
           >
             <path
               strokeLinecap='round'
