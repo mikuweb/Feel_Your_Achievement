@@ -59,7 +59,7 @@ export default function Home() {
                 setSelectedDay={setSelectedDay}
               />
               <ItemList itemList={itemList} setItemList={setItemList} />
-           <SampleHabits />
+           <SampleHabits itemList={itemList} setItemList={setItemList}/>
             </div>
           </>
         ) : (

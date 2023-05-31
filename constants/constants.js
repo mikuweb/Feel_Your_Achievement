@@ -26,7 +26,7 @@ export const ideas = [
     id: 3,
   },
   {
-    title: 'Dring water',
+    title: 'Drink water',
     image: water,
     id: 4,
   },
