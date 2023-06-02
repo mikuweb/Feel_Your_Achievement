@@ -28,7 +28,9 @@ const SampleHabits: React.FC<SampleHabitsProps> = ({
   return (
     <div className='w-full'>
       <div className='w-11/12 mx-auto h-auto mb-10'>
-        <p className='font-semibold w-fit text-xl my-5 text-center py-1 px-5 bg-blue-50 border-l-4 border-blue-200'>Habit ideas for you</p>
+        <p className='font-semibold w-fit text-xl my-5 text-center py-1 px-5 bg-blue-50 border-l-4 border-blue-200'>
+          Habit ideas for you
+        </p>
         <div className='px-3 md:px-6 gap-3 md:gap-5 grid grid-cols-2 md:grid-cols-3'>
           {ideas.map((idea) => (
             <div

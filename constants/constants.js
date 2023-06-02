@@ -1,8 +1,8 @@
-import meditation from "../public/images/meditation.svg"
-import reading from "../public/images/reading.svg"
-import yoga from "../public/images/yoga.svg"
-import running from "../public/images/running.svg"
-import water from "../public/images/drink_water.svg"
+import meditation from '../public/images/meditation.svg';
+import reading from '../public/images/reading.svg';
+import yoga from '../public/images/yoga.svg';
+import running from '../public/images/running.svg';
+import water from '../public/images/drink_water.svg';
 
 export const ideas = [
   {
