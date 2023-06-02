@@ -26,15 +26,15 @@ const SampleHabits: React.FC<SampleHabitsProps> = ({
   };
 
   return (
-    <div className='border-2 w-full'>
-      <div className='border-2 w-11/12 mx-auto h-auto mb-10'>
-        <p className='font-semibold text-xl my-4'>Habit ideas for you</p>
-        <div className=' gap-3 md:gap-5 grid grid-cols-2 md:grid-cols-3'>
+    <div className='w-full'>
+      <div className='w-11/12 mx-auto h-auto mb-10'>
+        <p className='font-semibold w-fit text-xl my-5 text-center py-1 px-5 bg-blue-50 border-l-4 border-blue-200'>Habit ideas for you</p>
+        <div className='px-3 md:px-6 gap-3 md:gap-5 grid grid-cols-2 md:grid-cols-3'>
           {ideas.map((idea) => (
             <div
               onClick={(e) => handleAddItem(e, idea.title)}
               key={idea.id}
-              className='border-2  py-3 md:py-6 rounded-lg flex flex-col items-center'
+              className='hover:scale-105 hover:bg-slate-50 py-3 md:py-6 rounded-lg flex flex-col items-center cursor-pointer shadow-lg transition active:border-2 border-cyan-400'
             >
               <div className='text-xl mb-4'>{idea.title}</div>
               <div>

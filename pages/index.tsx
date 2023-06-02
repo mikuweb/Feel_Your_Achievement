@@ -49,7 +49,7 @@ export default function Home() {
       <div className='bg-gradient-to-br from-indigo-300 to-sky-300 md:overflow-hidden'>
         {session ? (
           <>
-            <div className='bg-white md:max-w-3xl md:mx-auto md:mt-8 md:mb-8 md:px-15'>
+            <div className='bg-white md:max-w-3xl pb-8 md:mx-auto md:my-8 md:px-15'>
               <div className='text-2xl md:text-3xl font-bold pt-3 pl-3 md:pt-10 md:pl-10'>
                 Daily check list
               </div>
