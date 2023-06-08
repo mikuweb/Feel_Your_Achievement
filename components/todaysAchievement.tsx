@@ -47,7 +47,7 @@ const TodaysAchievement: FC<TodaysAchievementProps> = ({ itemList }) => {
 
   return (
     <div className='my-5 py-5 px-12 md:gap-1 w-fit flex flex-col justify-center  bg-gradient-to-br from-blue-700 to-indigo-900 text-center mx-auto rounded-3xl text-white'>
-      <p className='text-xl font-semibold'>Hello, Usename!</p>
+      <p className='text-xl font-semibold'>Hello, Username!</p>
       <p className='text-base md:text-lg'>{`${day}, ${month} ${date}`}</p>
       <p className='text-2xl md:text-3xl font-bold '> {message}</p>
     </div>

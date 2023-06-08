@@ -6,6 +6,7 @@ import ItemList from '@/components/itemList';
 import TodaysAchievement from '@/components/todaysAchievement';
 import Calender from '@/components/Calender';
 import Spinner from '@/components/Spinner';
+import SampleHabits from '@/components/SampleHabits';
 
 export interface ItemType {
   id: number;
@@ -18,13 +19,13 @@ export default function Home() {
   const [itemList, setItemList] = useState<ItemType[]>([
     {
       id: Math.random(),
-      value: 'Studying Next.js',
+      value: 'You can add a habit like this',
       isCompleted: false,
       isEditing: false,
     },
     {
       id: Math.random(),
-      value: 'Running',
+      value: 'Ex: Running',
       isCompleted: false,
       isEditing: false,
     },
@@ -48,7 +49,7 @@ export default function Home() {
       <div className='bg-gradient-to-br from-indigo-300 to-sky-300 md:overflow-hidden'>
         {session ? (
           <>
-            <div className='bg-white md:max-w-3xl md:mx-auto md:mt-8 md:mb-8 md:px-15'>
+            <div className='bg-white md:max-w-3xl pb-8 md:mx-auto md:my-8 md:px-15'>
               <div className='text-2xl md:text-3xl font-bold pt-3 pl-3 md:pt-10 md:pl-10'>
                 Daily check list
               </div>
@@ -58,6 +59,7 @@ export default function Home() {
                 setSelectedDay={setSelectedDay}
               />
               <ItemList itemList={itemList} setItemList={setItemList} />
+              <SampleHabits itemList={itemList} setItemList={setItemList} />
             </div>
           </>
         ) : (
