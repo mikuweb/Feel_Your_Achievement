@@ -74,7 +74,7 @@ const Progress = () => {
       <div className='text-white text-3xl lg:text-5xl font-bold m-10 text-center'>
         This page is under construction
       </div>
-      <p className='text-white text-lg lg:text-xl'>We are working on it!</p>
+      <p className='text-white text-lg lg:text-xl'>I am working on it!</p>
     </div>
   );
 };
